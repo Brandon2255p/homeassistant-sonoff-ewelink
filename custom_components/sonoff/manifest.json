@@ -1,0 +1,15 @@
+{
+  "codeowners": [
+    "@brandon2255p"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/user/my_component/",
+  "domain": "sonoff",
+  "iot_class": "cloud_polling",
+  "name": "eWeLink Sonoff",
+  "requirements": [
+    "websocket-client==0.54.0"
+  ],
+  "version": "1.0.0"
+}
