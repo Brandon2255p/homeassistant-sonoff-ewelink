@@ -36,6 +36,7 @@ class SonoffSensor(SensorEntity, EntityDeviceInfoMixin):
         self._sensor = sensor
         self._device = device
         self._device_id = device.device_id
+        _LOGGER.warning(f"{self.device_info}")
 
     @property
     def available(self):
@@ -72,8 +73,9 @@ class SonoffSensor(SensorEntity, EntityDeviceInfoMixin):
     def icon(self):
         return SONOFF_SENSORS_MAP[self._sensor]["icon"]
 
-    # @property
-    # def device_info(self):
+    @property
+    def device_info(self):
+        return self.device_info_property()
     #     return {
     #         "identifiers": {
     #             # Serial numbers are unique identifiers within a specific domain

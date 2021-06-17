@@ -7,8 +7,7 @@ class EntityDeviceInfoMixin:
     _device_id: str
     name: str
 
-    @property
-    def device_info(self):
+    def device_info_property(self):
         return {
             "identifiers": {
                 # Serial numbers are unique identifiers within a specific domain

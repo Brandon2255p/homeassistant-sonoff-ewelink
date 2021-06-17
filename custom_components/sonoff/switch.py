@@ -50,6 +50,10 @@ class SonoffSwitch(SwitchEntity, EntityDeviceInfoMixin):
     def unique_id(self):
         return f"{SWITCH_DOMAIN}.{DOMAIN}_{self._device.device_id}_{self._channel}"
 
+    @property
+    def device_info(self):
+        return self.device_info_property()
+
     async def async_turn_on(self, **kwargs):
         self._api.switch(self._device_id, self._channel, True)
         self._state = True
