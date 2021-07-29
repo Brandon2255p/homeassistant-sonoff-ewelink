@@ -1,7 +1,9 @@
 import logging
-from homeassistant.helpers import device_registry as dr
+
 from homeassistant import config_entries, core
 from homeassistant.components.switch import DOMAIN as SWITCH_DOMAIN, SwitchEntity
+from homeassistant.helpers import device_registry as dr
+
 from .api import EWeLinkApi, SonoffDevice
 from .const import DOMAIN, EWELINK_API, SCAN_INTERVAL
 from .mixins import EntityDeviceInfoMixin

@@ -1,6 +1,6 @@
 from datetime import timedelta
-from homeassistant.const import TEMP_CELSIUS
 
+TEMP_CELSIUS = "°C"
 DOMAIN = "sonoff"
 EWELINK_API = "ewelink_api"
 CONF_API_REGION = "api_region"

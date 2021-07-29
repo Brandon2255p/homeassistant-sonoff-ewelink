@@ -11,17 +11,11 @@ import time
 from typing import Dict, List
 
 import aiohttp
-from homeassistant.const import (
-    CONF_EMAIL,
-    CONF_PASSWORD,
-    CONF_SCAN_INTERVAL,
-    CONF_USERNAME,
-    EVENT_HOMEASSISTANT_STOP,
-    HTTP_BAD_REQUEST,
-    HTTP_MOVED_PERMANENTLY,
-    HTTP_NOT_FOUND,
-    HTTP_UNAUTHORIZED,
-)
+
+HTTP_BAD_REQUEST = 400
+HTTP_NOT_FOUND = 404
+HTTP_UNAUTHORIZED = 401
+HTTP_MOVED_PERMANENTLY = 304
 import websocket
 
 from .const import SONOFF_SENSORS_MAP
@@ -307,6 +301,7 @@ class EWeLinkApi:
         )
 
         resp = await r.json()
+        _LOGGER.info(resp)
         # get a new region to login
         if (
             "error" in resp
@@ -538,7 +533,8 @@ class EWeLinkApiWebsocketListener(threading.Thread, websocket.WebSocketApp):
 
 
 async def main():
-    son = EWeLinkApi()
+    import os
+    son = EWeLinkApi(os.environ.get("USER"), os.environ.get("PASS"), os.environ.get("REGION", "cn"))
     async with aiohttp.ClientSession() as client:
         await son.do_login(client)
         time.sleep(20)

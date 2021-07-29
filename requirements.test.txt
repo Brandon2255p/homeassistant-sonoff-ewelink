@@ -1,3 +1,6 @@
 pytest
 pytest-cov==2.9.0
 pytest-homeassistant-custom-component
+websocket-client
+aiohttp
+

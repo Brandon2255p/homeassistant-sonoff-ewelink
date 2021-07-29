@@ -1,11 +1,11 @@
 import logging
 
-from homeassistant.helpers import device_registry as dr
 from homeassistant import config_entries, core
 from homeassistant.components.sensor import DOMAIN as SENSOR_DOMAIN, SensorEntity
+from homeassistant.helpers import device_registry as dr
 
 from .api import EWeLinkApi, SonoffDevice
-from .const import DOMAIN, EWELINK_API, SONOFF_SENSORS_MAP, SCAN_INTERVAL
+from .const import DOMAIN, EWELINK_API, SCAN_INTERVAL, SONOFF_SENSORS_MAP
 from .mixins import EntityDeviceInfoMixin
 
 _LOGGER = logging.getLogger(__name__)
